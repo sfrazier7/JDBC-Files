@@ -8,6 +8,7 @@ public class jdbcTest2 {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
+
 		//Connection to DB
 		ConnectionFile conn = new ConnectionFile();
 		conn.getConn();
