@@ -4,23 +4,22 @@ public class jdbcTest {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Connection connect = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
-			//Connection to DB
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "password");
-			System.out.println("Database connected.\n");
-			
-			//Statement
-			statement = connect.createStatement();
-			
-			//SQL Query Execution
-			resultSet = statement.executeQuery("select * from employees");
-			
-			//Processes the result of set
-			while(resultSet.next()) {
-				System.out.println(resultSet.getString("last_name") + ", " + resultSet.getString("first_name"));
-			}
+		//Connection to DB
+		ConnectionFile conn = new ConnectionFile();
+		conn.getConn();
+	
+		//Statement
+		statement = conn.getConn().createStatement();
+		
+		//SQL Query Execution
+		resultSet = statement.executeQuery("select * from employees");
+		
+		//Processes the result of set
+		while(resultSet.next()) {
+		System.out.println(resultSet.getString("last_name") + ", " + resultSet.getString("first_name"));
+    }
 	}
 }

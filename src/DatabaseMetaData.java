@@ -6,7 +6,6 @@ public class DatabaseMetaData {
 
 	public static void main(String[] args) throws Exception {
 		
-		Connection conn = null;
 		ResultSet resultSet = null;
 		String catalog = null;
 		String schemaPattern = null;
@@ -14,10 +13,10 @@ public class DatabaseMetaData {
 		String columnNamePattern = null;
 		String[] types = null;
 		
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "SataniaShiraha7!");
-		System.out.println("Database connected.\n");
+		ConnectionFile conn = new ConnectionFile();
+		conn.getConn();
 		
-		java.sql.DatabaseMetaData dbMetaData = conn.getMetaData();
+		java.sql.DatabaseMetaData dbMetaData = conn.getConn().getMetaData();
 		
 		//DB Info
 		System.out.println("Product name: " + dbMetaData.getDatabaseProductName());
@@ -48,7 +47,7 @@ public class DatabaseMetaData {
 			System.out.println(resultSet.getString("COLUMN_NAME"));
 		}
 		
-		conn.close();
+		conn.getConn().close();;
 		resultSet.close();
 			
 

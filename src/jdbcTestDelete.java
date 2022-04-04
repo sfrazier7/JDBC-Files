@@ -4,26 +4,26 @@ public class jdbcTestDelete {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Connection connect = null;
+		
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
 			//Connection to DB
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "password");
-			System.out.println("Database connected.\n");
+			ConnectionFile conn = new ConnectionFile();
+			conn.getConn();
 			
 			//Statement
-			statement = connect.createStatement();
+			statement = conn.getConn().createStatement();
 			
 			System.out.println("Before Delete");
-			displayEmployee(connect, "John", "Doe");
+			displayEmployee(conn.getConn(), "John", "Doe");
 			
 			//Updating Email Info
 			int rowsAffected = statement.executeUpdate("delete from employees " + 
 			"where last_name='Doe' and first_name = 'John'");
 			
 			System.out.println("After Delete");
-			displayEmployee(connect, "John", "Doe");
+			displayEmployee(conn.getConn(), "John", "Doe");
 			
 	}
 	
