@@ -9,7 +9,7 @@ public class jdbcTest3 {
 		ResultSet resultSet = null;
 		
 			//Connection to DB
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "SataniaShiraha7!");
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "password");
 			System.out.println("Database connected.\n");
 			
 			//Statement
