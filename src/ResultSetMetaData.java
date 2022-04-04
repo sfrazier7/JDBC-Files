@@ -11,7 +11,7 @@ public class ResultSetMetaData {
 		Statement state = null;
 		ResultSet rSet = null;
 		
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "SataniaShiraha7!");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "serverpassword");
 		System.out.println("Database connected.\n");
 		
 		state = conn.createStatement();
