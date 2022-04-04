@@ -4,16 +4,16 @@ public class jdbcTestPreparedStatements {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Connection connect = null;
+		
 		PreparedStatement prepStatement = null;
 		ResultSet resultSet = null;
 		
-			//Connection to DB
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "SataniaShiraha7!");
-			System.out.println("Database connected.\n");
+		//Connection to DB
+		ConnectionFile conn = new ConnectionFile();
+		conn.getConn();
 			
 			//Prepare Statement
-			prepStatement = connect.prepareStatement("select * from employees where salary > ? and department=?");
+			prepStatement = conn.getConn().prepareStatement("select * from employees where salary > ? and department=?");
 			
 			//SQL Parameters
 			prepStatement.setDouble(1, 80000);

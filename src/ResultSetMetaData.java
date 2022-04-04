@@ -7,14 +7,15 @@ public class ResultSetMetaData {
 
 	public static void main(String[] args) throws Exception {
 		
-		Connection conn = null;
 		Statement state = null;
 		ResultSet rSet = null;
 		
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "SataniaShiraha7!");
-		System.out.println("Database connected.\n");
+		ConnectionFile conn = new ConnectionFile();
+		conn.getConn();
 		
-		state = conn.createStatement();
+		java.sql.DatabaseMetaData dbMetaData = conn.getConn().getMetaData();
+		
+		state = conn.getConn().createStatement();
 		rSet = state.executeQuery("select id, last_name, first_name, salary from employees");
 		
 		java.sql.ResultSetMetaData rsMetaData = rSet.getMetaData();
